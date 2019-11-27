@@ -1,0 +1,21 @@
+<div class="card__buttons">
+    <div>
+        <button mat-icon-button>
+            <mat-icon color="base">thumb_up_alt</mat-icon>
+        </button>
+        <span>{{ likes }}</span>
+        <button mat-icon-button>
+            <mat-icon color="base">thumb_down_alt</mat-icon>
+        </button>
+        <span>{{ dislikes }}</span>
+    </div>
+    <div
+        class="card__buttons--delete"
+        *ngIf="isUserPage()"
+        (click)="deleteContent(postId)"
+    >
+        <button mat-icon-button>
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</div>

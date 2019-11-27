@@ -1,0 +1,61 @@
+<div class="container">
+    <mat-card class="profile">
+        <mat-card-header>
+            <h2>Edit Profile:</h2>
+        </mat-card-header>
+        <hr />
+        <form [formGroup]="profileForm" (ngSubmit)="getRawData()">
+            <mat-card-content>
+              <div class="profile__delete">
+                <mat-icon matTooltip="Delete account" (click)="confirmDialog()">delete_forever</mat-icon>
+              </div>
+                <div class="profile__info">
+                    <div class="profile__avatar">
+                        <img
+                            [src]="url || defaultImage"
+                            alt="avatar"
+                            height="250"
+                            width="250"
+                        />
+                        <label class="custom-file-input" for="upload"></label>
+                        <input
+                            id="upload"
+                            type="file"
+                            (change)="addAvatar($event)"
+                            accept=".png, .pdf, .jpg, .jpeg"
+                        />
+                    </div>
+                    <div class="profile__user-settings">
+                        <mat-form-field>
+                            <mat-label>Name</mat-label>
+                            <input
+                                matInput
+                                type="text"
+                                formControlName="userName"
+                            />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Surname</mat-label>
+                            <input
+                                matInput
+                                type="text"
+                                formControlName="userSurname"
+                            />
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button
+                    [disabled]="profileForm.invalid"
+                    type="submit"
+                    mat-raised-button
+                    (click)="forSubmitDialog()"
+                    color="accent"
+                >
+                    Update profile
+                </button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

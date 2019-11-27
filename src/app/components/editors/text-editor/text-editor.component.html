@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="text-editor__wrapper ">
+        <form
+            class="text-editor__form"
+            [formGroup]="uploadTextContentForm"
+            (ngSubmit)="startUpload(uploadTextContentForm.value)"
+        >
+            <mat-form-field required color="accent" class="text-editor__title">
+                <input
+                    matInput
+                    placeholder="Title"
+                    type="text"
+                    formControlName="title"
+                    #title
+                    (keyup)="checkTitle($event)"
+                    required
+                    [value] = "titleHeader" 
+                />
+            </mat-form-field>
+
+            <ckeditor
+                [editor]="Editor"
+                [config]="config"
+                formControlName="description"
+                (change)="checkDescription($event)"
+            ></ckeditor>
+            <button
+                class="text-editor__button"
+                mat-raised-button
+                color="accent"
+                type="submit"
+                [disabled]="disabled"
+            >
+                {{button}}
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<mat-card class="card__audio" (click)="goCardDetail(this.postId)">
+    <div class="music__icon">
+        <mat-icon>music_video</mat-icon>
+    </div>
+
+    <audio controls class="card__audio--palyer">
+        <source [src]="url" type="audio/mp3" />
+        Your browser does not support the audio tag.
+    </audio>
+
+    <mat-card-title>
+        {{ title }}
+    </mat-card-title>
+    <div class="card__audio--icons" (click)="stopEvent($event)">
+        <ita-card-buttons
+            [postId]="postId"
+            [likes]="likes"
+            [dislikes]="dislikes"
+        ></ita-card-buttons>
+    </div>
+</mat-card>
