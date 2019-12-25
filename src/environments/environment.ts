@@ -13,7 +13,7 @@ export const environment = {
             'https://identitytoolkit.googleapis.com/v1/accounts:delete?key=',
     },
     firebaseConfig: {
-      
+      // place for yuor firebase configuration
     },
 };
 
